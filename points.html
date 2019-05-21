@@ -1,188 +1,195 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Point Poker</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: "Helvetica Neue", "Arial", "Verdana", sans-serif;
-      }
-      html,
-      body,
-      .container {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-        background-color: #999;
-      }
 
-      .container {
-        display: flex;
-        flex-wrap: wrap;
-        transition: transform 0.5s;
-      }
+<head>
+  <meta charset="utf-8" />
+  <title>Point Poker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", "Arial", "Verdana", sans-serif;
+    }
 
-      .card {
-        width: 21.3%;
-        height: 21.4%;
-        margin-left: 3%;
-        flex: 0 0 auto;
-        box-sizing: border-box;
-        border: 1px black solid;
-        background-color: white;
-        border-radius: 2vw;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-        position: relative;
-      }
+    html,
+    body,
+    .container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      background-color: #999;
+    }
 
-      .card-value {
-        font-size: 12vw;
-        text-align: center;
-      }
-    </style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      transition: transform 0.5s;
+    }
 
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+    .card {
+      width: 21.3%;
+      height: 21.4%;
+      margin-left: 3%;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      border: 1px black solid;
+      background-color: white;
+      border-radius: 2vw;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
 
-  <body>
-    <div class="container">
-      <div class="card">
-        <p class="card-value">
-          0
-        </p>
-      </div>
+    .card-value {
+      font-size: 12vw;
+      text-align: center;
+    }
+  </style>
+</head>
 
-      <div class="card">
-        <p class="card-value">
-          1
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          2
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          3
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          5
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          8
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          13
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          21
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          34
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          55
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          89
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          144
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="card-value">
-          ?
-        </p>
-      </div>
+<body>
+  <div class="container">
+    <div class="card">
+      <p class="card-value">
+        0
+      </p>
     </div>
-    <script>
-      const vcenterCards = () =>
-        [...document.querySelectorAll("p.card-value")].forEach(card => {
-          const { height: ph } = card.parentNode.getBoundingClientRect();
-          const { height: ch } = card.getBoundingClientRect();
-          card.style.transform = `translateY(${(ph - ch) / 2.2}px)`;
-        });
-      window.addEventListener("resize", vcenterCards);
-      vcenterCards();
 
-      let zoomed = false;
-      let container = document.querySelector(".container");
+    <div class="card">
+      <p class="card-value">
+        1
+      </p>
+    </div>
 
-      function zoomIn(card) {
-        let parentRect = container.getBoundingClientRect();
-        let cardRect = card.getBoundingClientRect();
-        let parentCenter = {
-          x: parentRect.left + parentRect.width / 2,
-          y: parentRect.top + parentRect.height / 2
-        };
-        let cardCenter = {
-          x: cardRect.left + cardRect.width / 2,
-          y: cardRect.top + cardRect.height / 2
-        };
-        let translate = {
-          x: parentCenter.x - cardCenter.x,
-          y: parentCenter.y - cardCenter.y
-        };
-        let scale = {
-          x: parentRect.width / cardRect.width,
-          y: parentRect.height / cardRect.height
-        };
-        container.style.transform = `translate(${translate.x *
-          scale.x}px, ${translate.y * scale.y}px) scale(${scale.x}, ${
-          scale.y
-        })`;
-      }
+    <div class="card">
+      <p class="card-value">
+        2
+      </p>
+    </div>
 
-      function zoomOut(card) {
-        container.style.transform = "";
-      }
+    <div class="card">
+      <p class="card-value">
+        3
+      </p>
+    </div>
 
-      function zoomCard(card) {
-        if (zoomed) {
-          zoomOut(card);
-          zoomed = false;
-        } else {
-          zoomIn(card);
-          zoomed = true;
-        }
-      }
-      [...document.querySelectorAll(".card")].forEach(card => {
-        card.addEventListener("click", _ => zoomCard(card));
-        card.addEventListener("touchstart", _ => zoomCard(card));
-        card.addEventListener("transitionend", _ => vcenterCards());
+    <div class="card">
+      <p class="card-value">
+        5
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        8
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        13
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        21
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        34
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        55
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        89
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        144
+      </p>
+    </div>
+
+    <div class="card">
+      <p class="card-value">
+        ?
+      </p>
+    </div>
+  </div>
+  <script>
+    const vcenterCards = () =>
+      [...document.querySelectorAll("p.card-value")].forEach(card => {
+        const { height: ph } = card.parentNode.getBoundingClientRect();
+        const { height: ch } = card.getBoundingClientRect();
+        card.style.transform = `translateY(${(ph - ch) / 2.2}px)`;
       });
-    </script>
-  </body>
+    window.addEventListener("resize", vcenterCards);
+    vcenterCards();
+
+    let container = document.querySelector(".container");
+
+    function zoomIn(card) {
+      let parentRect = container.getBoundingClientRect();
+      let cardRect = card.getBoundingClientRect();
+      let parentCenter = {
+        x: parentRect.left + parentRect.width / 2,
+        y: parentRect.top + parentRect.height / 2
+      };
+      let cardCenter = {
+        x: cardRect.left + cardRect.width / 2,
+        y: cardRect.top + cardRect.height / 2
+      };
+      let translate = {
+        x: parentCenter.x - cardCenter.x,
+        y: parentCenter.y - cardCenter.y
+      };
+      let scale = {
+        x: parentRect.width / cardRect.width * 0.95,
+        y: parentRect.height / cardRect.height * 0.95
+      };
+      container.style.transform = `matrix(${scale.x}, 0, 0, ${scale.y}, ${translate.x * scale.x}, ${translate.y * scale.y})`;
+      console.log(container.style.transform)
+    }
+
+    function zoomOut(card) {
+      container.style.transform = 'matrix(1,0,0,1,0,0)';
+    }
+
+    let state = "zoomed out";
+    function zoomStart(card) {
+      if (state === "zoomed in") {
+        zoomOut(card);
+        state = "zooming out";
+      } else if (state === "zoomed out") {
+        zoomIn(card);
+        state = "zooming in";
+      }
+    }
+    function zoomEnd() {
+      if (state === "zooming out") {
+        state = "zoomed out";
+      } else if (state === "zooming in") {
+        state = "zoomed in";
+      }
+    }
+
+    [...document.querySelectorAll(".card")].forEach(card => {
+      card.addEventListener("mousedown", _ => zoomStart(card));
+      card.addEventListener("touchstart", _ => zoomStart(card));
+      container.addEventListener("transitionend", _ => zoomEnd());
+    });
+  </script>
+</body>
+
 </html>
