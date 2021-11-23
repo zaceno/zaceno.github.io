@@ -9,6 +9,7 @@ body {
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
+  user-select: none;
 }
 
 .board {
@@ -44,6 +45,7 @@ body {
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
+    user-select: none;
   }
   .fifteen-puzzle button:active {
     top: 1px;

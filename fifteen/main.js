@@ -4,6 +4,18 @@ import slide from './slide.js'
 import loadImages from './imgs.js'
 import wireSquares from './squares.js'
 
+const touchEvent = (action, payload) => {
+  const fn = (_, ev) => {
+    ev.stopPropagation()
+    ev.preventDefault()
+    return [action, payload]
+  }
+  return {
+    ontouchstart: fn,
+    onmousedown: fn
+  }
+}
+
 const squareModel = wireSquares({
   get: state => state.squares,
   set: (state, squares) => ({...state, squares})
@@ -22,9 +34,8 @@ app({
         ${squareModel.map(state, ({number, movable}) => slide('0.3s', html`
           <img
             key="square-${number}"
+            ${touchEvent(squareModel.Move, number)}
             class=${{movable, square: number > 0, blank: !number}}
-            ontouchstart=${[squareModel.Move, number]}
-            onmousedown=${[squareModel.Move, number]}
             src=${number > 0 ? state.images[number-1] : '#'}
           />
         `))}
