@@ -1,0 +1,84 @@
+---
+const {initialHeight} = Astro.props
+---
+<div class="expandable" style={"--initial-height: " + initialHeight}>
+  <div class="expandable__content">
+    <slot />
+  </div>
+  <button class="expandable__toggle"></button>
+</div>
+<style>
+.expandable__content {
+  position: relative;
+  transition: 0.3s;
+  border-bottom: 1px rgba(99, 0, 255, 0.759) solid;
+  overflow:hidden;
+  height: var(--initial-height);
+}
+.expandable[data-expanded] .expandable__content{
+  height: var(--expand-height);
+  border-color: rgba(80, 29, 10, 1);
+}
+
+.expandable__footer {
+  position: absolute;
+  bottom: 0;
+  height: 1.2rem;
+  left: 0;
+  right: 0;
+} 
+
+.expandable__toggle {
+  background: linear-gradient(rgba(68, 25, 135, 1), rgba(36, 5, 85, 1));
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: 1px rgba(85, 40, 156, 1) solid;
+  border-top: none;
+  border-radius: 0.45rem;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  padding: 0 0.5rem;
+  position: relative;
+  left: calc(50% - 1.8rem);
+  top: -0.2rem;
+  cursor: s-resize;
+}
+.expandable__toggle::after {
+  content: 'more...';
+}
+.expandable[data-expanded] .expandable__toggle {
+  cursor: n-resize;
+  background: linear-gradient(rgba(80, 29, 10, 1), rgba(53, 24, 13, 1));
+  border-color: rgba(80, 29, 10, 1);
+
+}
+.expandable[data-expanded] .expandable__toggle::after {
+  content: '...less';
+}
+</style>
+<script>
+const forEachExpandable = (fn: (el:Element)=>any) => document.querySelectorAll('.expandable').forEach((el:Element) => fn(el))
+
+const updateExpanderHeight = (el:Element) => requestAnimationFrame(() => {
+  const content = el.querySelector('.expandable__content') as HTMLElement
+  const last = content.lastChild as HTMLElement
+  content.style.setProperty('--expand-height', (last.offsetTop + last.offsetHeight) + 'px')
+})
+
+const bindToggle = (el:Element) => {
+  el.querySelector('.expandable__toggle')?.addEventListener(
+    'click',
+    () => el.toggleAttribute('data-expanded')
+  )
+}
+
+window.addEventListener('resize', () => {
+  forEachExpandable(el => updateExpanderHeight(el))					
+})
+
+forEachExpandable(el => {
+  updateExpanderHeight(el)
+  bindToggle(el)
+})
+</script>

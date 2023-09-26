@@ -1,0 +1,189 @@
+---
+import {Image} from 'astro:assets'
+const {portrait, bodyBgClass} = Astro.props
+import '@fontsource/marck-script'
+
+---
+<script is:inline src="/scroll-timeline.js"></script>
+<div id="hero__wrapper">
+  <div id="hero__container" class={bodyBgClass}>
+    <Image id="hero__portrait" alt="Portrait picture" width={200} height={200} src={portrait}/>
+    <div id="hero__name">Zacharias Enochsson</div>
+    <div id="hero__title">Web Developer</div>
+  </div>
+</div>
+<style>
+#hero__wrapper {
+  height: 70vh;
+}
+
+#hero__container {
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  border-bottom: 1px transparent solid;
+  --circle-size: 35vw;
+  --circle-top: 27vh;
+  --text-height: 2.5rem;
+  --text-gap: 1.5rem;
+  z-index: 100;
+}   
+
+#hero__portrait {
+  position: absolute; 
+  display:block;
+  top: calc(var(--circle-top) - var(--circle-size) / 2);
+  left: calc(50vw - var(--circle-size) / 2);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border: 2px rgb(255, 79, 0) solid;
+  border-radius: 50%;
+  background-color: skyblue;
+}
+
+#hero__name {
+  position: absolute;
+  top: calc(var(--text-gap) * 1.5 + var(--circle-top) + var(--circle-size) / 2);
+  left: calc(50vw - 8.8rem);
+  font-size: 2rem;
+}
+
+
+#hero__title {
+  position: absolute;
+  top: calc(2 * var(--text-gap) + var(--text-height) + var(--circle-top) + var(--circle-size) / 2);
+  left: calc(50vw - 6.7rem);
+  font-weight: bold;        
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: 'Marck script', cursive;
+  background: linear-gradient(90deg, orangered 5vw, orange);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up)*/
+@media only screen and (min-width: 600px) {
+  #hero__container {
+    --circle-size: 22vw;
+    --circle-top: 35vh;
+  }
+   #hero__portrait {
+    left: calc(37.5vw - var(--circle-size));
+  }
+  #hero__name {
+    top: calc(var(--circle-top) - var(--text-height));
+    left: calc(37.5vw + var(--text-gap));
+  }
+  #hero__title {
+    top: calc(var(--circle-top) + 0.5rem);
+    left: calc(37.5vw + var(--text-gap));
+    text-align: left; 
+  }
+} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #hero__container {
+    --text-gap: 2rem;
+    --text-height: 3.2rem;
+    --circle-size: 21vw;
+  }
+  #hero__name {
+    font-size: 2.5rem;
+  }
+  #hero__title {
+    font-size: 2.7rem;
+  }
+} 
+/* Large devices (laptops/desktops, 992px and up)  */
+@media only screen and (min-width: 992px) {
+  #hero__container {
+    --text-gap: 2.8rem;
+    --text-height: 3.5rem;
+    --circle-size: 20vw;
+  }
+  #hero__name {
+    font-size: 3rem;
+  }
+  #hero__title {
+    font-size: 3.3rem;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px) {
+  #hero__container {
+    --text-gap: 3rem;
+    --text-height: 3.7rem;
+    --circle-size: 19vw;
+  }
+  #hero__name {
+    font-size: 3.3rem;
+  }
+  #hero__title {
+    font-size: 3.6rem;
+  }
+}  
+
+</style>
+<style is:inline>
+  
+  #hero__wrapper {
+    view-timeline-name: --header-scroll;
+    view-timeline-axis: block;
+  }
+  
+  #hero__container {
+    animation: --hero-container-anim linear both;      
+    animation-timeline: --header-scroll;
+    animation-range: exit 0% 50%;
+  }   
+  @keyframes --hero-container-anim {
+    to {
+      border-color: #FF44004D;
+    }
+  }
+
+  #hero__portrait {
+    animation: --hero-portrait-anim linear both;
+    animation-timeline: --header-scroll;
+    animation-range: exit 0% 50%;
+  }
+  @keyframes --hero-portrait-anim {
+    to {
+      width: 5rem;
+      height: 5rem;
+      top: 0.8rem;
+      left: 1rem;
+    }
+  }
+  
+  #hero__name {
+    animation: --hero-name-anim linear both;
+    animation-timeline: --header-scroll;
+    animation-range: exit 0% 50%;
+  }
+  @keyframes --hero-name-anim {
+    to {
+      font-size: 1.2rem;
+      top: 1.1rem;
+      left: 7rem;
+    }
+  }
+  
+  
+  #hero__title {
+    animation: --hero-title-anim linear both;
+    animation-timeline: --header-scroll;
+    animation-range: exit 0% 50%;
+  }
+  @keyframes --hero-title-anim {
+    to {
+      font-size: 1.3rem;
+      top: 3rem;
+      left: 7rem;
+    }
+  }
+</style>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 64 64" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>
+    @media (prefers-color-scheme: dark) {
+      :root { filter: invert(100%); }
+    }
+</style>
+<path fill="#555" d="M18.0569 26.3588L9.33253 12.6032L13.7085 4.91512L48.8436 4.96787L51.8514 11.0382L39.5245 41.9535L28.6517 42.0627L28.9914 23.5776L18.1216 45.4382L46.5128 45.5579L45.5146 30.4335L54.6675 46.1605L50.2938 51.9292L14.6803 51.9688L9.98216 46.1767L25.5434 14.7345L35.6449 14.6193L35.4368 34.7276L44.8798 11.0312L17.3329 11.0661L18.0569 26.3588Z" fill-rule="nonzero" opacity="1" stroke="none"/>
+</svg>

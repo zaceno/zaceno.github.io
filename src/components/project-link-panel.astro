@@ -1,0 +1,37 @@
+---
+const {title, details, icon, url} = Astro.props
+---
+<article class="project-link-panel">
+  <img src={"/icon-sprites.svg#icon-" + icon} class="icon" alt={icon + " icon"}>
+  <h3>{title}</h3>
+  <p>{details}</p>
+  <a href={url}>&#10140;</a>
+</article>
+<style> 
+  .project-link-panel {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+  }
+  .project-link-panel a {
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: block;
+    position: absolute;
+    color: #fff;
+    text-decoration: none;
+    text-align: right;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent 60%, #00000099 );
+    border: 1px #ffffff33 solid;
+    border-width: 1px 0 1px 0;
+    line-height: 3.5rem;
+    padding-right: 1.2rem; 
+  }
+  .project-link-panel:hover a, .project-link-panel a:active {
+    opacity: 1;
+  } 
+</style>
