@@ -10,10 +10,10 @@ import '@fontsource/marck-script'
     <div id="hero__title">Web Developer</div>
   </div>
 </div>
+<script is:inline defer src="/scroll-timeline.js"></script>
 <style>
 #hero__wrapper {
   height: 70vh;
-  view-timeline: --hero-timeline block;
 }
 
 #hero__container {
@@ -28,15 +28,7 @@ import '@fontsource/marck-script'
   --text-height: 2.5rem;
   --text-gap: 1.5rem;
   z-index: 100;
-  animation: hero-container-anim linear both;      
-  animation-timeline: --hero-timeline;
-  animation-range: exit 0% exit 50%;
 }   
-@keyframes hero-container-anim {
-  to {
-    border-color: #FF44004D;
-  }
-}
 
 
 #hero__portrait {
@@ -49,17 +41,6 @@ import '@fontsource/marck-script'
   border: 2px rgb(255, 79, 0) solid;
   border-radius: 50%;
   background-color: skyblue;
-  animation: hero-portrait-anim linear both;
-  animation-timeline: --hero-timeline;
-  animation-range: exit 0% exit 50%;
-}
-@keyframes hero-portrait-anim {
-  to {
-    width: 5rem;
-    height: 5rem;
-    top: 0.8rem;
-    left: 1rem;
-  }
 }
 
 #hero__name {
@@ -67,16 +48,6 @@ import '@fontsource/marck-script'
   top: calc(var(--text-gap) * 1.5 + var(--circle-top) + var(--circle-size) / 2);
   left: calc(50vw - 8.8rem);
   font-size: 2rem;
-  animation: hero-name-anim linear both;
-  animation-timeline: --hero-timeline;
-  animation-range: exit 0% exit 50%;
-}
-@keyframes hero-name-anim {
-  to {
-    font-size: 1.2rem;
-    top: 1.1rem;
-    left: 7rem;
-  }
 }
 
 
@@ -91,16 +62,6 @@ import '@fontsource/marck-script'
   background: linear-gradient(90deg, orangered 5vw, orange);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  animation: hero-title-anim linear both;
-  animation-timeline: --hero-timeline;
-  animation-range: exit 0% exit 50%;
-}
-@keyframes hero-title-anim {
-  to {
-    font-size: 1.3rem;
-    top: 3rem;
-    left: 7rem;
-  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up)*/
@@ -165,4 +126,61 @@ import '@fontsource/marck-script'
     font-size: 3.6rem;
   }
 }  
+</style>
+<style is:inline>
+#hero__wrapper {
+  view-timeline: --hero-timeline block;
+}
+
+#hero__container {
+  animation: hero-container-anim linear both;      
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}   
+@keyframes hero-container-anim {
+  to {
+    border-color: #FF44004D;
+  }
+}
+
+#hero__portrait {
+  animation: hero-portrait-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-portrait-anim {
+  to {
+    width: 5rem;
+    height: 5rem;
+    top: 0.8rem;
+    left: 1rem;
+  }
+}
+
+#hero__name {
+  animation: hero-name-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-name-anim {
+  to {
+    font-size: 1.2rem;
+    top: 1.1rem;
+    left: 7rem;
+  }
+}
+
+#hero__title {
+  animation: hero-title-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-title-anim {
+  to {
+    font-size: 1.3rem;
+    top: 3rem;
+    left: 7rem;
+  }
+}
+
 </style>
