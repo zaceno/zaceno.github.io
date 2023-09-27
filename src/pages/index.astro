@@ -21,8 +21,7 @@ import ProjectPanel from '../components/project-link-panel.astro'
 		<meta name="description" content="Zach's Tech work portfolio & blog">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="mask-icon" href="/favicon.svg" color="#000000" />    
-		
+		<link rel="mask-icon" href="/favicon.svg" color="#000000" />
 		<style is:global>
 			* {padding:0; margin: 0; box-sizing: border-box;}
 		
@@ -75,6 +74,7 @@ import ProjectPanel from '../components/project-link-panel.astro'
 			}
 			
 		</style>
+		
 		<title>Zach's web dev portfolio</title>
 	</head>
 	<body class="body-bg">
@@ -179,7 +179,6 @@ import ProjectPanel from '../components/project-link-panel.astro'
 		margin-left: 10vw;
 		margin-right: 10vw;
 	}
-
 } 
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -193,6 +192,7 @@ import ProjectPanel from '../components/project-link-panel.astro'
 		margin-left: 2vw;
 		margin-right: 2vw;
 		display: flex;
+		flex-wrap: wrap;
 		gap: 2vw;
 	}
 } 
@@ -206,7 +206,6 @@ import ProjectPanel from '../components/project-link-panel.astro'
 	main.content-main {
 		margin-left: 8vw;
 		margin-right: 8vw;
-		display: flex;
 		gap: 4vw;
 	}
 }
