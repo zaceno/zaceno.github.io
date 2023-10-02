@@ -20,13 +20,6 @@ const {initialHeight} = Astro.props
   border-color: rgba(80, 29, 10, 1);
 }
 
-.expandable__footer {
-  position: absolute;
-  bottom: 0;
-  height: 1.2rem;
-  left: 0;
-  right: 0;
-} 
 
 .expandable__toggle {
   background: linear-gradient(rgba(68, 25, 135, 1), rgba(36, 5, 85, 1));
@@ -56,6 +49,19 @@ const {initialHeight} = Astro.props
 .expandable[data-expanded] .expandable__toggle::after {
   content: '...less';
 }
+
+/* Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px) {
+  .expandable__content {
+    height: var(--expand-height);
+    border-width: 0;
+  }
+  .expandable__toggle {
+    display: none;
+  }
+
+}  
+
 </style>
 <script>
 const forEachExpandable = (fn: (el:Element)=>any) => document.querySelectorAll('.expandable').forEach((el:Element) => fn(el))
