@@ -1,4 +1,4 @@
-const IMG_SRC = "/public/rose.jpg"
+const IMG_SRC = "/rose.jpg"
 const PART_SIZE = 60
 const PARTS = 4
 const FULL_SIZE = PART_SIZE * PARTS
