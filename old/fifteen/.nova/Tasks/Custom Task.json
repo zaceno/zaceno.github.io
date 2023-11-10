@@ -1,9 +1,0 @@
-{
-  "actions" : {
-    "run" : {
-      "enabled" : true,
-      "script" : "npx servor --reload"
-    }
-  },
-  "identifier" : "5B942329-51B3-4EE9-BD81-0473EFBD04E1"
-}

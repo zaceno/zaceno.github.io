@@ -1,0 +1,65 @@
+.fifteen {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fifteen__board {
+  width: 240px;
+  height: 240px;
+  background-color: #00000033;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.fifteen__square--slide {
+  transition: 0.2s;
+}
+
+.fifteen__square,
+.fifteen__blank {
+  width: 60px;
+  height: 60px;
+  outline: 2px #ffffff33 solid;
+}
+
+.fifteen__blank {
+  visibility: hidden;
+}
+
+.fifteen__square--movable {
+  cursor: pointer;
+}
+
+.fifteen__buttons {
+  margin-top: 1rem;
+}
+
+.fifteen__buttons button {
+  width: 6rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background: #00000033;
+  color: #fff;
+  border: 1px skyblue solid;
+  cursor: pointer;
+}
+.fifteen__buttons button:hover {
+  background: #ffffff11;
+}
+.fifteen__buttons button:active {
+  background: #ffffff33;
+}
+.fifteen__buttons button:first-child {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-right-width: 0;
+}
+.fifteen__buttons button:last-child {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}

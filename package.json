@@ -12,8 +12,9 @@
   "dependencies": {
     "@fontsource/marck-script": "^5.0.12",
     "@fontsource/titillium-web": "^5.0.12",
-    "@zxlabs/astrojs-hyperapp": "^0.0.1",
+    "@zxlabs/astrojs-hyperapp": "^2.0.1",
     "astro": "^3.2.4",
-    "hyperapp-jsx-pragma": "^1.3.0"
+    "hyperapp-jsx-pragma": "^1.3.0",
+    "webcomponent-transition-group": "^1.0.1"
   }
 }

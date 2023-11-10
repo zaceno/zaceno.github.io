@@ -1,8 +1,4 @@
 ---
-import '@fontsource/titillium-web/200.css'
-import '@fontsource/titillium-web/400.css'
-import portrait from '../assets/portrait.jpeg'
-import Hero from '../components/hero.astro'
 import Expandable from '../components/expandable.astro'
 import PhotoSpread from '../components/photo-spread.astro'
 import {Image} from 'astro:assets'
@@ -15,197 +11,137 @@ import secDirLogo from '../assets/secdir-logo.svg'
 import okgLogo from '../assets/okg-logo.svg'
 import ProjectPanel from '../components/project-link-panel.astro'
 import b3skilledLogo from '../assets/b3skilled-logo.svg'
+import Layout from '../layouts/layout.astro'
 ---
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Zach's Tech work portfolio & blog">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="mask-icon" href="/favicon.svg" color="#000000" />
-		<title>Zach's web dev portfolio</title>
-	</head>
-	<body class="body-bg">
-		<header>
-		 <Hero portrait={portrait} bodyBgClass="body-bg"/>
-		</header>
-		<main class="content-main">
-	
-			<section class="content-section">
-				<Expandable initialHeight="23rem">
-					<h2>Personal projects</h2>
-					
-					<ProjectPanel
-						icon="transition"
-						title="Transition group web-component"
-						details="Framework-agnostic entry/exit/shift animations."
-						url="https://zaceno.github.io/webcomponent-transition-group"
-					/>
-					
-					<ProjectPanel
-						icon="multiplication"
-						title="Multiplication trainer"
-						details="Web app for learning multiplication tables. Offline-capable, phone-optimized."
-						url="https://github.com/zaceno/arithmetist"
-					/>
-					
-					<ProjectPanel
-						icon="test"
-						title="Testillery"
-						details="Test runner & reporter in the browser, without any build-tools."
-						url="https://github.com/zaceno/testillery"
-					/>
+<Layout largeHero={true}>
+	<main>
+		<section>
+			<Expandable initialHeight="23rem">
+				<h2>Personal projects</h2>
 				
-					<ProjectPanel
-						icon="state"
-						title="useHyperState"
-						details="React hook for Hyperapp-like state management. A better useReducer."
-						url="https://github.com/zaceno/usehyperstate"
-					/>
-					
-					<ProjectPanel
-						icon="lit"
-						title="Hyperlit"
-						details="TTL for writing JSX-like views in Hyperapp without the build step"
-						url="https://github.com/zaceno/hyperlit"
-					/>
-
-					<ProjectPanel
-						icon="gui"
-						title="7GUIs Hyperapp"
-						details="Solving the 7GUIs challenge with Hyperapp."
-						url="https://zaceno.github.io/sevenguis-hyperapp/#"
-					/>
+				<ProjectPanel
+					icon="transition"
+					title="Transition group web-component"
+					details="Framework-agnostic entry/exit/shift animations."
+					url="/projects/transition-group"
+				/>
 				
-					<ProjectPanel
-						icon="code"
-						title="Hyperapp Code-along"
-						details="Video-tutorial series, from 'Hello World' to TodoMVC – with Hyperapp."
-						url="https://zaceno.github.io/codealong-hyperapp/"
-					/>
-				</Expandable>
-			</section>
+				<ProjectPanel
+					icon="multiplication"
+					title="Multiplication trainer"
+					details="Web app for learning multiplication tables. Offline-capable, phone-optimized."
+					url="https://github.com/zaceno/arithmetist"
+				/>
+				
+				<ProjectPanel
+					icon="test"
+					title="Testillery"
+					details="Test runner & reporter in the browser, without any build-tools."
+					url="https://github.com/zaceno/testillery"
+				/>
 			
-			<section class="content-section">
-				<Expandable initialHeight="23rem">
-					<h2>Professional Work</h2>
-					<article>
-						<p style="line-height: 64px; text-align: center">
-							<Image style="vertical-align: middle" src={eonLogo} alt="e.on logo" height="22"/>&nbsp;&nbsp;
-							<Image style="vertical-align: middle" src={kockumsLogo} alt="kockums logo" height="48"/>&nbsp;&nbsp;
-							<Image style="vertical-align: middle" src={okgLogo} alt="okg logo" height="36"/>&nbsp;&nbsp;
-							<Image style="vertical-align: middle" src={secDirLogo} alt="securitas direct logo" height="48"/>&nbsp;&nbsp;
-							<Image style="vertical-align: middle" src={axisLogo} alt="axis communications logo" height="32"/>&nbsp;&nbsp;
-							<Image style="vertical-align: middle" src={ikeaLogo} alt="ikea logo" height="28"/>&nbsp;&nbsp;
-							<Image style="vertical-align: middle" src={volvoLogo} alt="volvo cars logo" height="44"/>&nbsp;&nbsp;
-						</p>
-						<p>
-							Over the last 17+ years I've built a broad base of web-related experience at several large firms in the region.   
-						</p>
-						<p>
-							I got my start with PHP and MySQL, but specialized in front-end. Though I 
-							worked as scrum-master, agile coach or project manager for much of that time,
-							I remained an active front-end coder as a matter of personal interest. 
-						</p>	
-						<p>
-							Currently employed as a consultant at B3 Skilled, available for web development assignments,
-							especially where front-end, project/team management or senior experience is needed. Need someone like that?
-							Feel free to reach out!
-						</p>
-						<p style="text-align:center">
-							<a style="cursor: pointer" href="&#x6d;ailto:zacharias.enochsson&#x40;b3skilled.se"><Image src={b3skilledLogo} alt="B3 Skilled logo" height="32" /></a>
-														
-						</p>
-					</article>	
-				</Expandable>
-			</section>
+				<ProjectPanel
+					icon="state"
+					title="useHyperState"
+					details="React hook for Hyperapp-like state management. A better useReducer."
+					url="https://github.com/zaceno/usehyperstate"
+				/>
 				
-			<section class="content-section">
-				<h2> In repose </h2>
-				<article id="in-repose">
-					<PhotoSpread />
-						
-					<p>
-						Having grown up a bit all over the globe – in Sweden, the States and East Africa, I've settled in Lund with my wife and kids.
-						When I'm not spending time with them, I'll be noodling on the ukulele, playing video games, folding origami or studying philosophy.
+				<ProjectPanel
+					icon="lit"
+					title="Hyperlit"
+					details="TTL for writing JSX-like views in Hyperapp without the build step"
+					url="https://github.com/zaceno/hyperlit"
+				/>
+	
+				<ProjectPanel
+					icon="gui"
+					title="7GUIs Hyperapp"
+					details="Solving the 7GUIs challenge with Hyperapp."
+					url="https://zaceno.github.io/sevenguis-hyperapp/#"
+				/>
+			
+				<ProjectPanel
+					icon="code"
+					title="Hyperapp Code-along"
+					details="Video-tutorial series, from 'Hello World' to TodoMVC – with Hyperapp."
+					url="https://zaceno.github.io/codealong-hyperapp/"
+				/>
+			</Expandable>
+		</section>
+		
+		<section>
+			<Expandable initialHeight="23rem">
+				<h2>Professional Work</h2>
+				<article>
+					<p class="logo-line">
+						<Image src={eonLogo} alt="e.on logo" height="22"/>
+						<Image src={kockumsLogo} alt="kockums logo" height="48"/>
+						<Image src={okgLogo} alt="okg logo" height="36"/>
+						<Image src={secDirLogo} alt="securitas direct logo" height="48"/>
+						<Image src={axisLogo} alt="axis communications logo" height="32"/>
+						<Image src={ikeaLogo} alt="ikea logo" height="28"/>
+						<Image src={volvoLogo} alt="volvo cars logo" height="44"/>
 					</p>
 					<p>
-						 I love the outdoors. Solo hiking is good for the soul. I dream of sailing the open seas to turquoise shores (I just need a boat. And to learn how to sail).
+						Over the last 17+ years I've built a broad base of web-related experience at several large firms in the region.   
+					</p>
+					<p>
+						I got my start with PHP and MySQL, but specialized in front-end. Though I 
+						worked as scrum-master, agile coach or project manager for much of that time,
+						I remained an active front-end coder as a matter of personal interest. 
 					</p>	
-				</article>
-				<style>	
-					#in-repose {
-						min-height: 30vw;
-						container-type: block;
-					}
-					/* Large devices (laptops/desktops, 992px and up)  */
-					@media only screen and (min-width: 992px) {
-						#in-repose {
-							min-height: 26vw;
-						}
-					}
-				</style>				
-			</section>
-		
-		</main>
-	</body>
-</html>
-<style is:global>
-	* {padding:0; margin: 0; box-sizing: border-box;}
+					<p>
+						Currently employed as a consultant at B3 Skilled, available for web development assignments,
+						especially where front-end, project/team management or senior experience is needed. Need someone like that?
+						Feel free to reach out!
+					</p>
+					<p style="text-align:center">
+						<a style="cursor: pointer" href="&#x6d;ailto:zacharias.enochsson&#x40;b3skilled.se"><Image src={b3skilledLogo} alt="B3 Skilled logo" height="32" /></a>
+													
+					</p>
+				</article>	
+			</Expandable>
+		</section>
+			
+		<section>
+			<h2> In repose </h2>
+			<article id="in-repose">
+				<PhotoSpread />					
+				<p>
+					Having grown up a bit all over the globe – in Sweden, the States and East Africa, I've settled in Lund with my wife and kids.
+					When I'm not spending time with them, I'll be noodling on the ukulele, playing video games, folding origami or studying philosophy.
+				</p>
+				<p>
+					 I love the outdoors. Solo hiking is good for the soul. I dream of sailing the open seas to turquoise shores (I just need a boat. And to learn how to sail).
+				</p>	
+			</article>
+		</section>
+	
+	</main>
 
-	body {
-		color: #fff;
-		font-family: "Titillium Web", sans-serif;
-		font-weight: 200;
-		
-	}
-	
-	main {
-		min-height: 100vh;
-	}
-	
-	h2 {
-		margin: 1rem;
-		margin-top: 5rem;
-		margin-bottom: 2rem;
-	}
-	h3 {
-		font-size: 1rem;
-		font-weight: ;
-	}
-	article {
-		padding: 1rem;
-		background-color: #44444433;
-		margin: 0.2rem 0; 
-	}
-	p {
-		margin: 1rem 0;
-	}
-	
-	.body-bg {
-		background-size: 100vw 100vh;
-		background-attachment: fixed;
-		background-color:#111; 
-		background-image:  
-			repeating-linear-gradient(110deg, #00000077, #00000077 2px, transparent 2px, transparent 6px),
-			radial-gradient(50% 50% at 20% 80%, #411705, transparent),
-			radial-gradient(50% 50% at 80% 30%, #411705, transparent);
-	}
-	
-	.icon {
-		position: relative; 
-		top: -0.3rem;
-		float:left; 
-		margin-right: 0.5rem;
-		height: 30px;
-		width: 30px;
-	}
+</Layout>
+<style>
+
+.logo-line {
+	line-height: 64px;
+	text-align: center;
+}
+.logo-line img {
+	margin: 0 0.4rem;
+	vertical-align: middle;
+}
+
+
+#in-repose {
+	min-height: 30vw;
+	container-type: block;
+}
 		
 
 /* Small devices (portrait tablets and large phones, 600px and up)*/
 	@media only screen and (min-width: 600px) {
-		.content-section {
+		section {
 			margin-left: 10vw;
 			margin-right: 10vw;
 		}
@@ -213,12 +149,12 @@ import b3skilledLogo from '../assets/b3skilled-logo.svg'
 	
 	/* Medium devices (landscape tablets, 768px and up) */
 	@media only screen and (min-width: 768px) {
-		.content-section {
+		section {
 			margin-left: 0;
 			margin-right: 0;
 			flex: 1 1 45vw;
 		}
-		.content-main {
+		main {
 			margin-left: 2vw;
 			margin-right: 2vw;
 			display: flex;
@@ -229,20 +165,24 @@ import b3skilledLogo from '../assets/b3skilled-logo.svg'
 	} 
 	/* Large devices (laptops/desktops, 992px and up)  */
 	@media only screen and (min-width: 992px) {
-		.content-section {
+		section {
 			margin-left: 0;
 			margin-right: 0;
 			flex: 1 1 40vw;
 		}
-		.content-main {
+		main {
 			margin-left: 8vw;
 			margin-right: 8vw;
 			gap: 4vw;
 		}
+		#in-repose {
+			min-height: 26vw;
+		}
+
 	}
 	/* Extra large devices (large laptops and desktops, 1200px and up)*/
 	@media only screen and (min-width: 1200px) {
-		.content-section {
+		section {
 			flex: 1 1 20vw;
 		}
 	}  
