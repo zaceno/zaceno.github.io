@@ -1,0 +1,39 @@
+.counter-demo {
+  width: 6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.counter-demo > h1 {
+  font-size: 3rem;
+  text-align: center;
+  position: relative;
+  left: -2px;
+}
+
+.counter-demo button {
+  width: 3rem;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background: #00000033;
+  color: #fff;
+  border: 1px skyblue solid;
+  cursor: pointer;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.counter-demo button:last-child {
+  width: calc(3rem - 1px);
+  border-left-width: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.counter-demo button:hover {
+  background: #ffffff11;
+}
+.counter-demo button:active {
+  background: #ffffff33;
+}

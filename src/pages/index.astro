@@ -18,6 +18,15 @@ import Layout from '../layouts/layout.astro'
 		<section>
 			<Expandable initialHeight="23rem">
 				<h2>Personal projects</h2>
+
+				
+				<ProjectPanel
+					icon="ha-astro-integration"
+					title="Astro Hyperapp Integration"
+					details="Hyperapp islands in your Astro site"
+					url="/projects/hyperapp"
+				/>
+
 				
 				<ProjectPanel
 					icon="transition"
@@ -33,12 +42,6 @@ import Layout from '../layouts/layout.astro'
 					url="https://github.com/zaceno/arithmetist"
 				/>
 				
-				<ProjectPanel
-					icon="test"
-					title="Testillery"
-					details="Test runner & reporter in the browser, without any build-tools."
-					url="https://github.com/zaceno/testillery"
-				/>
 			
 				<ProjectPanel
 					icon="state"
@@ -122,6 +125,8 @@ import Layout from '../layouts/layout.astro'
 
 </Layout>
 <style>
+
+
 
 .logo-line {
 	line-height: 64px;
