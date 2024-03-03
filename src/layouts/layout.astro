@@ -17,6 +17,11 @@ const {largeHero} = Astro.props
   <body class="body-bg">
     <header>
      <Hero large={largeHero} bodyBgClass="body-bg"/>
+     <div class="header-menu">
+       <a style="cursor: pointer" href="&#x6d;ailto:zacharias.enochsson&#x40;b3skilled.se">
+       <img src={"/icon-sprites.svg#icon-contact"} class="icon" alt="contact">
+       </a>
+       </div>
     </header>
     
     <slot />
@@ -65,7 +70,20 @@ const {largeHero} = Astro.props
     color: #fff;
     
   }
-
+  .header-menu {
+    padding: 0;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 110;
+    text-align: right;
+  }
+  .header-menu img {
+    opacity: 0.7;
+  }
+  .header-menu img:hover {
+    opacity: 0.9;
+  }  
   .body-bg {
     background-size: 100vw 100vh;
     background-attachment: fixed;
