@@ -1,0 +1,25 @@
+---
+import {Image} from 'astro:assets'
+import githubLogo from './github-mark-white.svg'
+const repo = Astro.props.repo
+const text = Astro.props.text
+---
+<p>
+  <a href={"https://github.com/zaceno/" + repo}>
+  <Image src={githubLogo} alt="github link" width="45"/><br/>
+  {text}
+  </a>
+</p>
+<style>
+  p {text-align: center;
+    
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
+  a {
+    opacity: 0.3;
+  }
+  a:hover {
+    opacity: 0.9;
+  }
+</style>

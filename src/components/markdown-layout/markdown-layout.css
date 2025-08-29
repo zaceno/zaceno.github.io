@@ -1,0 +1,78 @@
+p,
+ul,
+ol {
+  font-weight: 300;
+  opacity: 0.85;
+
+  & code {
+    font-size: 0.9rem;
+    color: rgb(136, 221, 255);
+  }
+
+  & strong {
+    font-weight: 700;
+  }
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin: 2rem 0 2rem 0;
+  line-height: 1.5rem;
+}
+
+h2,
+h3 {
+  margin: 3rem 0 1rem 0;
+  & + * {
+    margin-top: 1rem;
+  }
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.7rem;
+  border-bottom: 1px #ffc94939 solid;
+  margin-top: 4rem;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* font-style: italic; */
+  color: rgb(66, 255, 255);
+}
+
+blockquote {
+  background: #ffffff13;
+  padding: 1rem 1.4rem;
+  border-left: 4px #ffffff37 solid;
+  & > p {
+    margin: 0;
+  }
+}
+
+blockquote > p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin-left: 1.3rem;
+  & li {
+    margin-top: 0.8rem;
+  }
+}
+
+pre:has(> code) {
+  margin: 2rem 0 2rem 0;
+  padding: 1rem;
+  line-height: 1.2rem;
+}

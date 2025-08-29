@@ -1,0 +1,32 @@
+---
+import {Image} from 'astro:assets'
+import contactIcon from './contact-icon.svg'
+import Hero from './hero/hero.astro'
+const largeHero = Astro.props.largeHero
+const bodyBgClass = Astro.props.bodyBgClass
+---
+<header>
+ <Hero large={largeHero} bodyBgClass={bodyBgClass}/>
+ <div class="header-menu">
+   <a style="cursor:pointer" href="&#x6d;ailto:zacharias.enochsson&#x40;b3skilled.se">
+    <Image src={contactIcon} alt="contact icon"/>
+    </a>
+ </div>
+</header>
+<style>
+  .header-menu {
+    padding: 0;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 110;
+    text-align: right;
+  }
+
+  img {
+    height: 30px;
+    width: 30px;
+    opacity: 0.7;
+    &:hover { opacity: 1;}
+  }  
+</style>

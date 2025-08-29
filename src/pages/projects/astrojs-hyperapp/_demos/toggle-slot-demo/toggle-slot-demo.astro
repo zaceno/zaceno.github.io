@@ -1,0 +1,47 @@
+---
+import DemoBox from '../demo.astro'
+import ToggleSlot from './toggle-slot.jsx'
+---
+<DemoBox info="This demonstrates the example above of passing multiple slots to a Hyperapp islands">
+  <ToggleSlot client:load>
+    <p class="red">
+      This text his hidden by default. And red.
+    </p>
+    <p slot="footer">
+      This footer text is always visible
+    </p>
+  </ToggleSlot>
+</DemoBox>
+<style is:global>
+  .toggle-slot-demo {
+    min-height: 13rem;
+    box-sizing: border-box;
+  }
+  .toggle-slot-demo p {
+    margin: 0;
+    padding: 1rem;
+  }
+  .toggle-slot-demo button {
+    --br: 0.4rem;
+    position: relative;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    color: white;
+    line-height: 1.8rem;
+    background: transparent;
+    border: 1px turquoise solid;
+    border-radius: var(--br);
+    cursor: pointer;
+    
+    &:hover {
+      background: #ffffff33;
+    }
+    &:active {
+      top: 1px;
+    }    
+  }
+</style>
+<style>
+  p {margin: 0;}
+  .red {color: red;}
+</style>

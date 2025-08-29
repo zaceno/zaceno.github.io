@@ -1,0 +1,26 @@
+---
+import './main-layout.css'
+import Header from './header/header.astro'
+const {largeHero} = Astro.props
+const keywords = Astro.props.keywords || ''
+const pageTitle = Astro.props.title || ''
+const description = Astro.props.description || pageTitle
+const mainTitle = "Zach's web dev portfolio & blog"
+const finalTitle = pageTitle ? `${pageTitle} - ${mainTitle}` : mainTitle
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content={description}>
+    {keywords && <meta name="keywords" content={keywords}>}
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon.svg" color="#000000" />
+    <title>{finalTitle}</title>
+  </head>
+  <body class="body-bg">
+    <Header largeHero={largeHero} bodyBgClass="body-bg" />
+    <slot />
+  </body>
+</html>

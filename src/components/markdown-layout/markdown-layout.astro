@@ -1,0 +1,40 @@
+---
+import Layout from '../main-layout/main-layout.astro'
+import './markdown-layout.css'
+---
+<Layout
+  title={Astro.props.frontmatter.title}
+  description={Astro.props.frontmatter.description}
+  keywords={Astro.props.frontmatter.keywords}
+>
+  <main>
+    <slot />
+  </main>
+</Layout>
+<style>
+main {
+  margin: 2rem auto;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+/* Base: phones (≈16px) */
+html { font-size: 100%; }         /* 16px */
+
+/* ≥576px: small tablets (≈17px) */
+@media (min-width: 576px) {
+  html { font-size: 106.25%; }    /* 17px */
+}
+
+/* ≥768px: tablets / small laptops (≈18px) */
+@media (min-width: 768px) {
+  html { font-size: 112.5%; }     /* 18px */
+}
+
+/* ≥1200px: desktops (≈20px) */
+@media (min-width: 1200px) {
+  html { font-size: 125%; }       /* 20px */
+}
+</style>

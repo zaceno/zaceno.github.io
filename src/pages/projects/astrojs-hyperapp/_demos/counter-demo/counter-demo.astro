@@ -1,0 +1,39 @@
+---
+import DemoBox from '../demo.astro'
+import Counter from './counter.tsx'
+---
+<DemoBox info="Since this site is built with Astro, here is a demonstration of the counter example working">
+  <Counter client:visible />
+</DemoBox>
+<style is:global>
+
+.counter-demo {
+color: turquoise;
+text-align: center;
+}
+.counter-demo button {
+  --br: 0.4rem;
+  position: relative;
+  padding: 0 0 0.2rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  width: 2.3rem;
+  background: transparent;
+  border: 1px turquoise solid;
+  border-radius: var(--br) 0 0 var(--br);
+  border-right-width: 0;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  &:last-child {
+    border-right-width: 1px;
+    border-radius: 0 var(--br) var(--br) 0;
+  }
+  &:hover {
+    background: #ffffff33;
+  }
+  &:active {
+    top: 1px;
+  }    
+}
+</style>

@@ -1,0 +1,72 @@
+---
+import {Image} from 'astro:assets'
+import oldChurch from './photos/oldchurch.jpeg'
+import campfire from './photos/campfire.jpeg'
+---
+<div class="photo-spread">
+  <Image id="photo-spread-1" height="500" src={oldChurch} alt="Medieval church, Visby" />
+  <Image id="photo-spread-2" height="500" src={campfire} alt="Beachside campfire, Kivik" />
+</div>
+<style>
+.photo-spread {
+  position:relative;
+  height: 14rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+
+  & img {
+    border: 5px white solid;
+    box-shadow: 0 0 20px #00000099;
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    transition: transform 0.3s;
+  }
+}
+#photo-spread-1 {
+  transform: rotate(5deg) scale(70%) translate(0, 0);							
+}
+#photo-spread-2 {
+  transform: rotate(-5deg) scale(80%) translate(-4rem, 0);							
+}
+.photo-spread:hover #photo-spread-1{
+  transform: rotate(10deg) scale(90%) translate(4rem, -0.5rem);							
+}
+.photo-spread:hover  #photo-spread-2 {
+    transform: rotate(-5deg) scale(100%) translate(-6rem, -0.5rem);							
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .photo-spread {
+    float:left;
+    width: 33%;
+    height: 24vw;
+  }
+  .photo-spread ~ p{
+    margin-left: 33%;
+  }
+  
+} 
+/* Large devices (laptops/desktops, 992px and up)  */
+@media only screen and (min-width: 992px) {
+  .photo-spread {
+    height: 20vw;
+  }  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px) {
+  .photo-spread {
+    float: none;
+    width: 100%;
+    height: 14vw;
+  }
+}  
+  
+
+</style>

@@ -1,0 +1,45 @@
+.poof {
+  /* Makes elements disappear by growing and fading */
+  opacity: 0;
+  transform: scale(3, 3);
+  transition: 0.4s ease-out;
+}
+.slide-transition {
+  /* makes motion linear with 200ms duration: */
+  transition: 0.2s linear;
+}
+
+.reset {
+  vertical-align: top;
+  border-color: transparent !important;
+  color: #777;
+  background: transparent;
+  font-size: 180%;
+  font-weight: bold;
+}
+.reset:hover {
+  color: white;
+}
+.box,
+.reset {
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  width: 10%;
+  box-sizing: border-box;
+  border: 2px white solid;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 1%;
+}
+
+.colored-boxes-demo {
+  --red: rgb(181, 46, 42);
+  --orange: rgb(217, 128, 22);
+  --yellow: rgb(205, 168, 40);
+  --green: rgb(103, 137, 18);
+  --blue: rgb(61, 80, 164);
+  --purple: rgb(135, 63, 177);
+  --pink: rgb(188, 121, 183);
+  width: 100%;
+  padding: 1rem;
+}

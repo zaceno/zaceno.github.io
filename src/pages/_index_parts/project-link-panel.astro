@@ -1,0 +1,60 @@
+---
+import {Image} from 'astro:assets'
+const {title, details, icon, url} = Astro.props
+import iconSrc from "./icon-sprites.svg?url"
+---
+<article class="project-link-panel">
+  <img src={iconSrc + `#icon-${icon}`} alt={icon + " icon"}>
+  <h3>{title}</h3>
+  <p>{details}</p>
+  <a href={url}>&#10140;</a>
+</article>
+<style> 
+
+  article {
+    padding: 1.5rem 1rem;
+    background-color: #44444433;
+    margin: 0.2rem 0;
+  }
+  
+  h3 {
+    font-size: 1rem;
+    margin-top: -0.2rem
+  }
+  
+  p {padding-left: 2.4rem;}
+  article {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+  }
+  article a {
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: block;
+    position: absolute;
+    color: #fff;
+    text-decoration: none;
+    text-align: right;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent 60%, #00000099 );
+    border: 1px #ffffff33 solid;
+    border-width: 1px 0 1px 0;
+    line-height: 3.5rem;
+    padding-right: 1.2rem; 
+  }
+  article:hover a, article a:active {
+    opacity: 1;
+  } 
+  img {
+    position: relative;
+    float: left;
+    margin-right: 0.5rem;
+    height: 30px;
+    width: 30px;
+  }
+
+</style>

@@ -1,0 +1,46 @@
+---
+import DemoBox from '../demo.astro'
+import ToggleContent from './toggle-content.jsx'
+---
+<DemoBox info="This is what slotting content into a Hyperapp island looks like">
+  <ToggleContent client:visible>
+    <p class="red">
+      This text is hidden by default. And red.
+    </p>
+  </ToggleContent>
+</DemoBox>
+<style is:global>
+
+
+  .content-demo {
+    min-height: 10rem;
+    box-sizing: border-box;
+  }
+  .content-demo p {
+    margin: 0;
+    padding: 1rem;
+  }
+  .content-demo button {
+    --br: 0.4rem;
+    position: relative;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    color: white;
+    line-height: 1.8rem;
+    background: transparent;
+    border: 1px turquoise solid;
+    border-radius: var(--br);
+    cursor: pointer;
+    
+    &:hover {
+      background: #ffffff33;
+    }
+    &:active {
+      top: 1px;
+    }    
+  }
+</style>
+<style>
+  p {margin: 0;}
+  .red {color: red;}
+</style>

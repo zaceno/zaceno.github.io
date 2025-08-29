@@ -1,0 +1,89 @@
+---
+import DemoBox from '../demo.astro'
+import InventoryReport from './inventory-report.tsx'
+import CountProduct from './count-product.tsx'
+import SelectProduct from './select-product.tsx'
+---
+<DemoBox info="Each of these three panels is a separate hyperapp-island, yet they share the same state" numberOfSlots={3}>
+  <Fragment slot="demo-1"><InventoryReport client:visible /></Fragment>
+  <Fragment slot="demo-2"><CountProduct client:visible /></Fragment>
+  <Fragment slot="demo-3"><SelectProduct client:visible /></Fragment>
+</DemoBox>
+<style is:global>
+  .synced-demo__inventory-report {
+    padding: 1rem;
+  }
+  .synced-demo__inventory-report p{
+    margin: 0;
+    color: white;
+  }
+  .synced-demo__inventory-report ul {
+    margin: 0 0 0 0.8rem;
+  }
+  .synced-demo__inventory-report li{
+    display: flex;
+    gap: 0.4rem;
+    margin: 0;
+    color: red;
+    font-weight: bold;
+  }
+  .synced-demo__inventory-report li span{
+    flex: 0 0 4rem;
+    color: turquoise;
+    font-weight: normal;
+  }
+  .synced-demo__select-product {
+    padding: 1rem;
+    text-align: center;
+  }
+  .synced-demo__select-product p{
+    margin: 0;
+    color: white;
+    text-align: left;
+  }
+  .synced-demo__select-product select {
+    margin: 1rem;
+    border: 1px turquoise solid;
+    background: transparent;
+    color: turquoise;
+    font-size: 1rem;
+  }
+  .synced-demo__count-product {
+    padding: 1rem;
+    text-align: center;
+  }
+  .synced-demo__count-product p{
+    margin: 0;
+  }
+  .synced-demo__count-product h1{
+    font-size: 1.7rem;
+    color: red;
+  }
+
+  .synced-demo__count-product p:not(:has(button)) {
+    text-align: left;
+  }
+  .synced-demo__count-product button {
+    --br: 0.3rem;
+    position: relative;
+    border: 1px turquoise solid;
+    width: 2rem;
+    font-size: 1rem;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    &:first-child {
+      border-radius: var(--br) 0 0 var(--br);
+      border-right-width: 0;
+    }
+    &:last-child {
+      border-radius: 0 var(--br) var(--br) 0;
+    }
+    &:active {
+      top: 1px;
+    }
+  }
+  
+  
+
+</style>

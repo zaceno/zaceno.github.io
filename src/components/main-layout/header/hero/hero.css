@@ -1,0 +1,196 @@
+#hero__wrapper {
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+  height: 80px;
+}
+#hero__wrapper.hero--large {
+  height: 70vh;
+}
+
+#hero__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  border-bottom: 1px #ff44004d solid;
+  --circle-size: 35vw;
+  --circle-top: 27vh;
+  --text-height: 40px;
+  --text-gap: 24px;
+  z-index: 100;
+}
+
+.hero--large #hero__container {
+  border-color: transparent;
+}
+
+#hero__portrait {
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 80px;
+  top: 13px;
+  left: 16px;
+  border: 2px rgb(255, 79, 0) solid;
+  border-radius: 50%;
+  background-color: skyblue;
+}
+.hero--large #hero__portrait {
+  top: calc(var(--circle-top) - var(--circle-size) / 2);
+  left: calc(50vw - var(--circle-size) / 2);
+  width: var(--circle-size);
+  height: var(--circle-size);
+}
+
+#hero__name {
+  position: absolute;
+  font-size: 19px;
+  top: 18px;
+  left: 112px;
+  font-weight: 300;
+}
+.hero--large #hero__name {
+  top: calc(var(--text-gap) * 1.5 + var(--circle-top) + var(--circle-size) / 2);
+  left: calc(50vw - 141px);
+  font-size: 32px;
+}
+
+#hero__title {
+  position: absolute;
+  font-size: 21px;
+  top: 48px;
+  left: 112px;
+  font-weight: bold;
+  font-family: "Marck script", cursive;
+  background: linear-gradient(90deg, orangered 5vw, orange);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.hero--large #hero__title {
+  top: calc(
+    2 * var(--text-gap) + var(--text-height) + var(--circle-top) +
+      var(--circle-size) / 2
+  );
+  left: calc(50vw - 107px);
+  font-size: 35px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up)*/
+@media only screen and (min-width: 600px) {
+  #hero__container {
+    --circle-size: 22vw;
+    --circle-top: 35vh;
+  }
+  .hero--large #hero__portrait {
+    left: calc(37.5vw - var(--circle-size));
+  }
+  .hero--large #hero__name {
+    top: calc(var(--circle-top) - var(--text-height));
+    left: calc(37.5vw + var(--text-gap));
+  }
+  .hero--large #hero__title {
+    top: calc(var(--circle-top) + 8px);
+    left: calc(37.5vw + var(--text-gap));
+    text-align: left;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #hero__container {
+    --text-gap: 32px;
+    --text-height: 51px;
+    --circle-size: 21vw;
+  }
+  .hero--large #hero__name {
+    font-size: 40px;
+  }
+  .hero--large #hero__title {
+    font-size: 43px;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up)  */
+@media only screen and (min-width: 992px) {
+  #hero__container {
+    --text-gap: 45px;
+    --text-height: 56px;
+    --circle-size: 20vw;
+  }
+  .hero--large #hero__name {
+    font-size: 48px;
+  }
+  .hero--large #hero__title {
+    font-size: 53px;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up)*/
+@media only screen and (min-width: 1200px) {
+  #hero__container {
+    --text-gap: 48px;
+    --text-height: 59px;
+    --circle-size: 19vw;
+  }
+  .hero--large #hero__name {
+    font-size: 53px;
+  }
+  .hero--large #hero__title {
+    font-size: 58px;
+  }
+}
+
+#hero__wrapper.hero--large {
+  view-timeline: --hero-timeline block;
+}
+
+.hero--large #hero__container {
+  animation: hero-container-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-container-anim {
+  to {
+    border-color: #ff44004d;
+  }
+}
+
+.hero--large #hero__portrait {
+  animation: hero-portrait-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-portrait-anim {
+  to {
+    width: 80px;
+    height: 80px;
+    top: 13px;
+    left: 16px;
+  }
+}
+
+.hero--large #hero__name {
+  animation: hero-name-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-name-anim {
+  to {
+    font-size: 19px;
+    top: 18px;
+    left: 112px;
+  }
+}
+
+.hero--large #hero__title {
+  animation: hero-title-anim linear both;
+  animation-timeline: --hero-timeline;
+  animation-range: exit 0% exit 50%;
+}
+@keyframes hero-title-anim {
+  to {
+    font-size: 21px;
+    top: 48px;
+    left: 112px;
+  }
+}

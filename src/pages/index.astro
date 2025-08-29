@@ -1,30 +1,37 @@
 ---
-import Expandable from '../components/expandable.astro'
-import PhotoSpread from '../components/photo-spread.astro'
 import {Image} from 'astro:assets'
-import volvoLogo from '../assets/volvo-logo.svg'
-import axisLogo from '../assets/axis-logo.svg'
-import ikeaLogo from '../assets/ikea-logo.svg'
-import kockumsLogo from '../assets/kockums-logo.svg'
-import eonLogo from '../assets/eon-logo.svg'
-import secDirLogo from '../assets/secdir-logo.svg'
-import okgLogo from '../assets/okg-logo.svg'
-import ProjectPanel from '../components/project-link-panel.astro'
-import b3skilledLogo from '../assets/b3skilled-logo.svg'
-import Layout from '../layouts/layout.astro'
+import Layout from '../components/main-layout/main-layout.astro'
+import ProjectPanel from './_index_parts/project-link-panel.astro'
+import Expandable from './_index_parts/expandable.astro'
+import PhotoSpread from './_index_parts/photo-spread.astro'
+import volvoLogo from './_index_parts/logos/volvo-logo.svg'
+import axisLogo from './_index_parts/logos/axis-logo.svg'
+import ikeaLogo from './_index_parts/logos/ikea-logo.svg'
+import kockumsLogo from './_index_parts/logos/kockums-logo.svg'
+import eonLogo from './_index_parts/logos/eon-logo.svg'
+import secDirLogo from './_index_parts/logos/secdir-logo.svg'
+import okgLogo from './_index_parts/logos/okg-logo.svg'
+import b3skilledLogo from './_index_parts/logos/b3skilled-logo.svg'
 ---
 <Layout largeHero={true}>
 	<main>
 		<section>
-			<Expandable initialHeight="23rem">
+			<Expandable initialHeight="38rem">
 				<h2>Personal projects</h2>
+
+				<ProjectPanel
+					icon="ha-vite-plugin"
+					title="Vite Hyperapp Plugin & Starter"
+					details="Use Vite for your Hyperapp apps"
+					url="/projects/vite-hyperapp"
+				/>
 
 				
 				<ProjectPanel
 					icon="ha-astro-integration"
 					title="Astro Hyperapp Integration"
 					details="Hyperapp islands in your Astro site"
-					url="/projects/hyperapp"
+					url="/projects/astrojs-hyperapp"
 				/>
 
 				
@@ -36,20 +43,19 @@ import Layout from '../layouts/layout.astro'
 				/>
 				
 				<ProjectPanel
-					icon="multiplication"
-					title="Multiplication trainer"
-					details="Web app for learning multiplication tables. Offline-capable, phone-optimized."
-					url="https://github.com/zaceno/arithmetist"
-				/>
-				
-			
-				<ProjectPanel
 					icon="state"
 					title="useHyperState"
 					details="React hook for Hyperapp-like state management. A better useReducer."
 					url="https://github.com/zaceno/usehyperstate"
 				/>
-				
+
+				<ProjectPanel
+					icon="multiplication"
+					title="Multiplication trainer"
+					details="Web app for learning multiplication tables. Offline-capable, phone-optimized."
+					url="https://github.com/zaceno/arithmetist"
+				/>
+								
 				<ProjectPanel
 					icon="lit"
 					title="Hyperlit"
@@ -74,7 +80,6 @@ import Layout from '../layouts/layout.astro'
 		</section>
 		
 		<section>
-			<Expandable initialHeight="23rem">
 				<h2>Professional Work</h2>
 				<article>
 					<p class="logo-line">
@@ -104,7 +109,6 @@ import Layout from '../layouts/layout.astro'
 													
 					</p>
 				</article>	
-			</Expandable>
 		</section>
 			
 		<section>
@@ -126,6 +130,18 @@ import Layout from '../layouts/layout.astro'
 </Layout>
 <style>
 
+article {
+	padding: 1rem;
+	background-color: #44444433;
+	margin: 0.2rem 0;
+}
+
+ProjectPanel {
+	padding: 1rem;
+	background-color: #44444433;
+	margin: 0.2rem 0;
+}
+
 
 
 .logo-line {
@@ -137,6 +153,21 @@ import Layout from '../layouts/layout.astro'
 	vertical-align: middle;
 }
 
+
+h2 {
+	margin: 1rem;
+	margin-top: 5rem;
+	margin-bottom: 2rem;
+}
+
+h3 {
+	font-size: 1rem;
+	margin: 1rem 0;
+}
+
+p {
+	margin: 1rem 0;
+}
 
 #in-repose {
 	min-height: 30vw;
