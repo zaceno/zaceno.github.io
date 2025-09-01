@@ -4,14 +4,8 @@ import Layout from '../components/main-layout/main-layout.astro'
 import ProjectPanel from './_index_parts/project-link-panel.astro'
 import Expandable from './_index_parts/expandable.astro'
 import PhotoSpread from './_index_parts/photo-spread.astro'
-import volvoLogo from './_index_parts/logos/volvo-logo.svg'
-import axisLogo from './_index_parts/logos/axis-logo.svg'
-import ikeaLogo from './_index_parts/logos/ikea-logo.svg'
-import kockumsLogo from './_index_parts/logos/kockums-logo.svg'
-import eonLogo from './_index_parts/logos/eon-logo.svg'
-import secDirLogo from './_index_parts/logos/secdir-logo.svg'
-import okgLogo from './_index_parts/logos/okg-logo.svg'
-import b3skilledLogo from './_index_parts/logos/b3skilled-logo.svg'
+import b3skilledLogo from './_index_parts/b3skilled-logo.svg'
+import oresund from './_index_parts/oresund.png'
 ---
 <Layout largeHero={true}>
 	<main>
@@ -82,31 +76,21 @@ import b3skilledLogo from './_index_parts/logos/b3skilled-logo.svg'
 		<section>
 				<h2>Professional Work</h2>
 				<article>
-					<p class="logo-line">
-						<Image src={eonLogo} alt="e.on logo" height="22"/>
-						<Image src={kockumsLogo} alt="kockums logo" height="48"/>
-						<Image src={okgLogo} alt="okg logo" height="36"/>
-						<Image src={secDirLogo} alt="securitas direct logo" height="48"/>
-						<Image src={axisLogo} alt="axis communications logo" height="32"/>
-						<Image src={ikeaLogo} alt="ikea logo" height="28"/>
-						<Image src={volvoLogo} alt="volvo cars logo" height="44"/>
+				<Image class="column-image" src={oresund} alt="" width="600"/>
+					<p>
+						Over two decades in the world of web development, at some of the largest firms (and smaller ones) in the Öresund region.
+					</p>
+					<p>Got my start with PHP and MySQL, and over time shifted focus to front-end and modern javascript/typescript.
+						Even at times when my professional role was more to the project management side, I've remained an avid coder in my off hours.
 					</p>
 					<p>
-						Over the last 17+ years I've built a broad base of web-related experience at several large firms in the region.   
+						Currently employed as a consultant at B3 Skilled and available for assignments. I can offer senior experience – primarily in the front-end – but I am quite comfortable working in a variety of languages on the back-end, as well as lead/coordinating responsibilities. 
 					</p>
 					<p>
-						I got my start with PHP and MySQL, but specialized in front-end. Though I 
-						worked as scrum-master, agile coach or project manager for much of that time,
-						I remained an active front-end coder as a matter of personal interest. 
-					</p>	
-					<p>
-						Currently employed as a consultant at B3 Skilled, available for web development assignments,
-						especially where front-end, project/team management or senior experience is needed. Need someone like that?
-						Feel free to reach out!
+						If this fits your need, please reach out!
 					</p>
 					<p style="text-align:center">
 						<a style="cursor: pointer" href="&#x6d;ailto:zacharias.enochsson&#x40;b3skilled.se"><Image src={b3skilledLogo} alt="B3 Skilled logo" height="32" /></a>
-													
 					</p>
 				</article>	
 		</section>
@@ -131,6 +115,7 @@ import b3skilledLogo from './_index_parts/logos/b3skilled-logo.svg'
 <style>
 
 article {
+	position: relative;
 	padding: 1rem;
 	background-color: #44444433;
 	margin: 0.2rem 0;
@@ -143,14 +128,11 @@ ProjectPanel {
 }
 
 
-
-.logo-line {
-	line-height: 64px;
-	text-align: center;
-}
-.logo-line img {
-	margin: 0 0.4rem;
-	vertical-align: middle;
+.column-image {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 100%;
 }
 
 
