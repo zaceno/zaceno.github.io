@@ -5,7 +5,7 @@ const {initialHeight} = Astro.props
   <div class="expandable__content">
     <slot />
   </div>
-  <button class="expandable__toggle"></button>
+  <button type="button" aria-label="show more" class="expandable__toggle">more...</button>
 </div>
 <style>
 .expandable__content {
@@ -38,17 +38,12 @@ const {initialHeight} = Astro.props
   top: -0.2rem;
   cursor: s-resize;
 }
-.expandable__toggle::after {
-  content: 'more...';
-}
+
 .expandable[data-expanded] .expandable__toggle {
   cursor: n-resize;
   background: linear-gradient(rgba(80, 29, 10, 1), rgba(53, 24, 13, 1));
   border-color: rgba(80, 29, 10, 1);
 
-}
-.expandable[data-expanded] .expandable__toggle::after {
-  content: '...less';
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up)*/
@@ -65,7 +60,7 @@ const {initialHeight} = Astro.props
 
 </style>
 <script>
-const forEachExpandable = (fn) => document.querySelectorAll('.expandable').forEach((el) => fn(el))
+const forEachExpandable = (fn:(el:Element)=>void) => document.querySelectorAll('.expandable').forEach((el) => fn(el))
 
 const updateExpanderHeight = (el:Element) => requestAnimationFrame(() => {
   const content = el.querySelector('.expandable__content')
@@ -74,13 +69,25 @@ const updateExpanderHeight = (el:Element) => requestAnimationFrame(() => {
   for (let child of content.childNodes) {
     if (child.nodeType === 1) last = child
   }
+  //@ts-ignore
   if (!!last) content.style.setProperty('--expand-height', (last.offsetTop + last.offsetHeight) + 'px')
 })
 
 const bindToggle = (el:Element) => {
-  el.querySelector('.expandable__toggle')?.addEventListener(
+  const toggle = el.querySelector('.expandable__toggle') as HTMLElement | null
+  if (!toggle) return 
+  toggle.addEventListener(
     'click',
-    () => el.toggleAttribute('data-expanded')
+    () => {
+      el.toggleAttribute('data-expanded')
+      if(el.hasAttribute('data-expanded')) {
+        toggle.innerText = '...less'
+        toggle.setAttribute('aria-label', 'show less')
+      } else {
+        toggle.innerText = 'more...'
+        toggle.setAttribute('aria-label', 'show more')
+      }
+    }
   )
 }
 
