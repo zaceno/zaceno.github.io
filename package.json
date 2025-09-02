@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.4",
+    "@astrojs/sitemap": "^3.5.1",
     "@fontsource/marck-script": "^5.0.12",
     "@fontsource/titillium-web": "^5.0.12",
     "astro": "^5.13.3",

@@ -6,8 +6,11 @@ import Expandable from './_index_parts/expandable.astro'
 import PhotoSpread from './_index_parts/photo-spread.astro'
 import b3skilledLogo from './_index_parts/b3skilled-logo.svg'
 import oresund from './_index_parts/oresund.png'
+import PersonSchema from './_index_parts/person-schema.astro'
+const description = "Portfolio site & blog of Zacharias Enochsson, a senior, front-end focused web developer in the Lund, Malmö, Öresund region of Sweden."
 ---
-<Layout largeHero={true}>
+<Layout largeHero={true} description={description}>
+	<PersonSchema  slot="head-extra"/>
 	<main>
 		<section>
 			<Expandable initialHeight="38rem">

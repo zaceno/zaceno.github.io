@@ -1,0 +1,14 @@
+---
+import './hero.css'
+import '@fontsource/marck-script'
+import portrait from './portrait.jpeg'
+import {Image} from 'astro:assets'
+const {bodyBgClass} = Astro.props
+---
+<a href="/" id="hero__wrapper">
+  <div id="hero__container" class={bodyBgClass}>
+    <Image id="hero__portrait" alt="Portrait picture" width={100} height={100} src={portrait}/>
+    <div id="hero__name">Zacharias Enochsson</div>
+    <div id="hero__title">Web Developer</div>
+  </div>
+</a>

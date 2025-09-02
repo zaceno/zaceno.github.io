@@ -1,12 +1,14 @@
 ---
 import {Image} from 'astro:assets'
 import contactIcon from './contact-icon.svg'
-import Hero from './hero/hero.astro'
+import HeroBig from './hero/hero-large.astro'
+import HeroSmall from './hero/hero-small.astro'
 const largeHero = Astro.props.largeHero
+const Hero = largeHero ? HeroBig : HeroSmall
 const bodyBgClass = Astro.props.bodyBgClass
 ---
 <header>
- <Hero large={largeHero} bodyBgClass={bodyBgClass}/>
+ <Hero  bodyBgClass={bodyBgClass}/> 
  <div class="header-menu">
    <a style="cursor:pointer" href="&#x6d;ailto:zacharias.enochsson&#x40;b3skilled.se">
     <Image src={contactIcon} alt="contact icon"/>

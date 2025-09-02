@@ -1,19 +1,18 @@
 ---
 import './hero.css'
 import '@fontsource/marck-script'
-import scrollTimelineHref from './scroll-timeline.js?url'
 import portrait from './portrait.jpeg'
 import {Image} from 'astro:assets'
-const {bodyBgClass, large=false} = Astro.props
+const {bodyBgClass} = Astro.props
 ---
-<a href="/" id="hero__wrapper" class:list={[{'hero--large': large}]}>
+<a href="/" id="hero__wrapper" class="hero--large">
   <div id="hero__container" class={bodyBgClass}>
     <Image id="hero__portrait" alt="Portrait picture" width={400} height={400} src={portrait}/>
-    <div id="hero__name">Zacharias Enochsson</div>
+    <h1 id="hero__name">Zacharias Enochsson</h1>
     <div id="hero__title">Web Developer</div>
   </div>
 </a>
-{large && <script src={scrollTimelineHref}></script>}
+<script defer src="/scroll-timeline.js"></script>
 <style is:inline>
 
 #hero__wrapper.hero--large {

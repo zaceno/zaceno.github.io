@@ -2,10 +2,9 @@
 import './main-layout.css'
 import Header from './header/header.astro'
 const {largeHero} = Astro.props
-const keywords = Astro.props.keywords || ''
 const pageTitle = Astro.props.title || ''
 const description = Astro.props.description || pageTitle
-const mainTitle = "Zach's web dev portfolio & blog"
+const mainTitle = "Zacharias Enochsson Web Developer Portfolio"
 const finalTitle = pageTitle ? `${pageTitle} - ${mainTitle}` : mainTitle
 ---
 <!doctype html>
@@ -13,8 +12,8 @@ const finalTitle = pageTitle ? `${pageTitle} - ${mainTitle}` : mainTitle
   <head>
     <meta charset="utf-8" />
     <meta name="description" content={description}>
-    {keywords && <meta name="keywords" content={keywords}>}
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <slot name="head-extra" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="mask-icon" href="/favicon.svg" color="#000000" />
     <title>{finalTitle}</title>
