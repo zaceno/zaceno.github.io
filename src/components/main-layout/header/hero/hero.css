@@ -50,6 +50,8 @@
   top: 18px;
   left: 112px;
   font-weight: 300;
+  margin-block-start: 0;
+  margin-blick-end: 0;
 }
 .hero--large #hero__name {
   top: calc(var(--text-gap) * 1.5 + var(--circle-top) + var(--circle-size) / 2);
